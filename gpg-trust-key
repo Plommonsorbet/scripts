@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -u
+fingerprint=$1
+trust=$2
+
+gpg --import-ownertrust << EOF
+${fingerprint}:${trust}:
+EOF

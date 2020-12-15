@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+gpg --import "$(i.gpg.pub)"
