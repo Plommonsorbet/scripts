@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -e -u
+
+path_env=$(echo $1 | upper)
+
+IFS=':' read -ra SYSPATH <<<"${!path_env}"
+
+shorten-home() {
+	sed "s#$HOME#~#g"
+}
+
+echo -e "\n[${path_env}]"
+for path in "${SYSPATH[@]}"; do
+    echo $path | shorten-home
+done
