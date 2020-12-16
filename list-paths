@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e 
+set -e -u
 
 get-path-envs() {
 	env | rg 'PATH' | cut -d'=' -f1

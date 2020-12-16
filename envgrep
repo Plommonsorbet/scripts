@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e -u
 
-env | rg -i "$@" | bat -l DotEnv
+env | rg -i "$@" | bat --style plain -l DotEnv
