@@ -1,0 +1,6 @@
+#!/bin/sh
+
+state="$(xset q | awk '/Caps Lock:/ {print $4}' | tr '[:lower:]' '[:upper:]')"
+
+
+[[ "$state" = "ON" ]] && xdotool key Caps_Lock 
