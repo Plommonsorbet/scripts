@@ -1,0 +1,35 @@
+* My Scripts
+** Agenda
+*** TODO Zsh files need to be sourced from NixOS
+*** TODO Bin files need to be exported from NixOS
+** Config Quarantine
+*** ZSH
+#+BEGIN_SRC sh
+  copy-to-clip() {
+      zle kill-buffer
+      print -rn -- $CUTBUFFER | xs
+  }; 
+
+#+END_SRC
+
+#+BEGIN_SRC sh
+  paste-clip() {
+      killring=("$CUTBUFFER" "${(@)killring[1,-2]}")
+      CUTBUFFER=$(xp)
+      zle yank
+  };
+#+END_SRC
+
+
+#+BEGIN_SRC sh
+  help-line () {
+      local buffer=$BUFFER
+      zle push-line
+
+      BUFFER="help $buffer"
+      zle accept-line
+  }
+
+#+END_SRC
+#+BEGIN_SRC sh
+#+END_SRC
