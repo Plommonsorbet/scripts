@@ -1,0 +1,5 @@
+#!/bin/sh
+
+finger=`i.gpg.id`
+
+gpg -u $finger --clearsign

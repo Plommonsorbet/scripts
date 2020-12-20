@@ -1,0 +1,8 @@
+#!/bin/sh
+
+finger=`i.gpg.id`
+
+for i in "$@";
+do
+    gpg --encrypt --recipient `i.gpg.id` --output $i.enc $i
+done
