@@ -4,5 +4,5 @@ finger=`i.gpg.id`
 
 for i in "$@";
 do
-    gpg -u $finger --sign --output $i.sig --detach-sig $i
+    gpg -u $finger --sign --output $i.sig --detach-sign $i
 done
