@@ -1,0 +1,6 @@
+#compdef launch
+
+function complete_args () {
+	 print -rC1 -- ${(ko)commands}
+}
+_arguments "*:commands:($(complete_args))"

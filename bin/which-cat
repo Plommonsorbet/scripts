@@ -3,4 +3,4 @@ set -e -u
 
 file=$1
 
-cat $(which $file)
+bat $(which $file)
