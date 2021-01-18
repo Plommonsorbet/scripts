@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+set -e -u
+
+# Generate tempfile in /tmp
+tempfile=$(mktemp emacs-stdin-$USER.XXXXXXX --tmpdir)
+
+# Write STDIN to temporary file
+cat - > $tempfile
+
+# Open $tempfile in emacs daemon and name buffer *stdin*
+emacsclient -n -e "(progn (find-file \"$tempfile\")
+                     (set-visited-file-name nil)
+                     (rename-buffer \"*stdin*\" t))
+         " 2>&1 > /dev/null
