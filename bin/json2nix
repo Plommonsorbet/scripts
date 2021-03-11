@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+tmpfile=$(mktemp)
+
+trap "rm -f $tmpfile" EXIT
+
+cat - > $tmpfile
+
+nix eval --impure --expr "builtins.fromJSON (builtins.readFile $tmpfile)" | nixfmt
