@@ -1,0 +1,11 @@
+#!/bin/bash
+
+context="`kubectl config current-context`"
+
+selected="$(kubectl config view -o json| jq -r --arg context $context '.contexts[].name | select(. != $context) ' |fzf  --prompt "cluster[$context]>")"
+
+kubectl config use-context $selected > /dev/null
+
+echo "switched ctx [$selected]"
+
+

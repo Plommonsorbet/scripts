@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -eu
+context="`kubectl config current-context`"
+
+namespace="`kubectl config view -o json | jq -r --arg context $context '.contexts[] | select(.name != $context) |.context.namespace | select(.) '`"
+
+if [ -z "$namespace" ]; then
+  namespace="default"
+fi
+
+selected="$(kubectl get namespaces -o json -A | jq -r --arg namespace $namespace '.items[].metadata.name | select(. != $namespace)' | fzf  --prompt "namespace[$namespace]>")"
+
+kubectl config set-context $context  --namespace=$selected > /dev/null
+echo "switched ns [$selected] ctx [$context]"
+
+
