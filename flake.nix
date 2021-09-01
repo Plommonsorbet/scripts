@@ -56,6 +56,10 @@
         devShell = pkgs.mkShell {
           buildInputs = [ all-scripts ];
         };
+
+	my-overlay = final: prev: {
+		plommonsorbet-scripts = prev.defaultPackage;
+	};
       });
 
 }
