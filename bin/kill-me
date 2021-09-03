@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "Are you sure you wish to kill user: ${USER}?"
+select yn in "Yes" "No"; do
+  case $yn in
+    Yes ) 
+	echo "Let's go!"
+	break;;
+    No ) 
+	echo "Bail!"
+	exit;;
+  esac
+done
+
+sudo pkill -9 -u $USER
