@@ -25,7 +25,7 @@
       devShell.${system} = pkgs.mkShell { buildInputs = [ scripts ]; };
 
       overlay = final: prev: {
-      	plommonsorbet-scripts = scripts;
+      	scripts = scripts;
       };
 
     };
