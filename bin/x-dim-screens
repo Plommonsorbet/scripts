@@ -2,7 +2,7 @@
 
 
 active-monitors () {
-	xrandr --listactivemonitors | rg '\d: (\+\*|\+)(\S+)' -o -r '$2'
+	xrandr --listactivemonitors | awk 'match($2, /(\+\*|\+)([a-zA-Z0-9-]+)/, a) { print a[2]}'
 }
 
 if [ -z $1 ];
