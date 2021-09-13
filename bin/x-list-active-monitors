@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xrandr --listactivemonitors | rg '\d: (\+\*|\+)(\S+)' -o -r '$2'

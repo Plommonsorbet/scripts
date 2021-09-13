@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -z $1 ];
+then
+	echo "USAGES: $0 <brightness 0.0 <-> 1.0>"
+else
+
+	for monitor in $(x-list-active-monitors);
+	do
+		xrandr --output $monitor --brightness $1
+	done
+fi
+
