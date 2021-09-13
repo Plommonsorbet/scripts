@@ -15,6 +15,9 @@
         name = "scripts";
         src = self;
         installPhase = "install -Dm755 $src/bin/* -t $out/bin";
+	checkPhase = ''
+	  patchShebangs bin
+	'';
       };
 
     in rec {
