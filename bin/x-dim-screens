@@ -1,11 +1,16 @@
 #!/bin/sh
 
+
+active-monitors () {
+	xrandr --listactivemonitors | rg '\d: (\+\*|\+)(\S+)' -o -r '$2'
+}
+
 if [ -z $1 ];
 then
 	echo "USAGES: $0 <brightness 0.0 <-> 1.0>"
 else
 
-	for monitor in $(x-list-active-monitors);
+	for monitor in $(active-monitors);
 	do
 		xrandr --output $monitor --brightness $1
 	done
