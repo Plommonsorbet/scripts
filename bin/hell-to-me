@@ -1,2 +1,2 @@
 #!/bin/sh
-echo hiii
+${pkgs.coreutils}/bin/echo hiii

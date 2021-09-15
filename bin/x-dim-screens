@@ -2,7 +2,7 @@
 
 
 active-monitors () {
-	xrandr --listactivemonitors | awk 'match($2, /(\+\*|\+)([a-zA-Z0-9-]+)/, a) { print a[2]}'
+	xrandr --listactivemonitors | ${pkgs.mawk}/bin/mawk 'match($2, /(\+\*|\+)([a-zA-Z0-9-]+)/, a) { print a[2]}'
 }
 
 if [ -z $1 ];
