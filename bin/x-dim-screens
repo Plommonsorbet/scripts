@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+
+active-monitors () {
+	xrandr --listactivemonitors | awk 'match($2, /(\+\*|\+)([a-zA-Z0-9-]+)/, a) { print a[2]}'
+}
+
+if [ -z $1 ];
+then
+	echo "USAGES: $0 <brightness 0.0 <-> 1.0>"
+else
+
+	for monitor in $(active-monitors);
+	do
+		xrandr --output $monitor --brightness $1
+	done
+fi
+

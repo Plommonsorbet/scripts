@@ -15,6 +15,9 @@
         name = "scripts";
         src = self;
         installPhase = "install -Dm755 $src/bin/* -t $out/bin";
+	checkPhase = ''
+	  patchShebangs bin
+	'';
       };
 
     in rec {
@@ -25,7 +28,7 @@
       devShell.${system} = pkgs.mkShell { buildInputs = [ scripts ]; };
 
       overlay = final: prev: {
-      	plommonsorbet-scripts = scripts;
+      	scripts = scripts;
       };
 
     };
