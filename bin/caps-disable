@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 state="$(xset q | awk '/Caps Lock:/ {print $4}' | tr '[:lower:]' '[:upper:]')"
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-tmpfile=$(mktemp)
+TMPFILE=$(mktemp)
 
-trap "rm -f $tmpfile" EXIT
+trap "rm -f $TMPFILE" EXIT
 
-yj -i > $tmpfile
+yj -i > $TMPFILE
 
 nix eval --impure --expr "builtins.fromJSON (builtins.readFile $tmpfile)" | nixfmt

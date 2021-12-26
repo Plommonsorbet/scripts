@@ -3,4 +3,5 @@ set -e -u
 
 file=$1
 
-bat $(which $file)
+FILE=$(which $file)
+bat $FILE

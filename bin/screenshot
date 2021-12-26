@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 DIR="$(xdg-user-dir PICTURES)/screenshots"
 mkdir -p $DIR
