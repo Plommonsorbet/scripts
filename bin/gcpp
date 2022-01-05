@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e 
+
+GCP_PROJECT="$(gcloud projects list --format='value(projectId)' | fzf)"
+
+gcloud config set core/project $GCP_PROJECT
