@@ -31,6 +31,7 @@
         bat
         gawk
         nixfmt
+	scrot
       ];
 
       scripts = with pkgs;
