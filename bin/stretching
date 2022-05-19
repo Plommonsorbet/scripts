@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -eu
+TIME="$1"
+DESCRIPTION="$2"
+
+
+say() {
+	espeak -s 160 -v mb-us3 "$1"
+}
+
+say "excercise $2"
+
+termdown "$1" --exec-cmd '[[ `expr {0} % 10` -eq 0 || {0} -lt  5  ]] && espeak -v mb-us1 {0}'
+
+say "excercise DONE"
