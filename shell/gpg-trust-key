@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e -u
+fingerprint=$1
+trust=$2
+
+gpg-reload() {
+	gpgconf --kill all
+}
+
+gpg-set-trust() {
+	echo "${1}:${2}:" | gpg --import-ownertrust
+}
+
+gpg-set_trust $fingerprint $trust
+gpg-reload

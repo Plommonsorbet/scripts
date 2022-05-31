@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-finger=`i.gpg.id`
-
-gpg -u $finger --clearsign

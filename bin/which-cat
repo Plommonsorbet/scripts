@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-set -e -u
-
-file=$1
-
-FILE=$(which $file)
-bat $FILE

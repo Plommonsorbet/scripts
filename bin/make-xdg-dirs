@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-
-for dir in $(cat ~/.config/user-dirs.dirs | rg -o '[a-zA-Z]+="(.+)"' -r '$1');
-do
-	mkdir -p $dir
-done
-
-
